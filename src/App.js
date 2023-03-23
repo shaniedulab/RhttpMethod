@@ -28,14 +28,14 @@ function App() {
   }
 
   function onCreateUser(user){
-    // fetch('https://chathttp-default-rtdb.asia-southeast1.firebasedatabase.app/users.json',{
+    // fetch('https://chathttp-default-rtdb.sasia-southeast1.firebasedatabase.app/users.json',{
     //   method:'POST',
     //   body: JSON.stringify(user)
     // }).then((resp)=>{
     //   console.log(resp);
     // })
     if(!EditUser){
-      axios.post('https://chathttp-default-rtdb.asia-southeast1.firebasedatabase.app/users.json',user).then((resp)=>{
+      axios.post('https://chathttp-default-rtdb.sasia-southeast1.firebasedatabase.app/users.json',user).then((resp)=>{
         feachUsers();  
         console.log(resp.data);
       })
@@ -44,7 +44,7 @@ function App() {
     console.log('jhgkjgjgkj',user)
     console.log('jhgkjgjgkj',editUser)
     
-      axios.put('https://chathttp-default-rtdb.asia-southeast1.firebasedatabase.app/users/'+editUser.id+'.json',user).then((resp)=>{
+      axios.put('https://chathttp-default-rtdb.sasia-southeast1.firebasedatabase.app/users/'+editUser.id+'.json',user).then((resp)=>{
         console.log(resp.data);
         feachUsers();  
       }).catch((err)=>{
@@ -58,7 +58,7 @@ function App() {
   function feachUsers(){
     setLoading(true)
     setErrorMessage(null)
-    // fetch('https://chathttp-default-rtdb.asia-southeast1.firebasedatabase.app/users.json').then((resp)=>{
+    // fetch('https://chathttp-default-rtdb.sasia-southeast1.firebasedatabase.app/users.json').then((resp)=>{
     //   if(!resp.ok)
     //   {
     //     throw new Error("Something went wrong")
@@ -75,7 +75,7 @@ function App() {
     //     setLoading(false)
     //  })
    
-    axios.get('https://chathttp-default-rtdb.asia-southeast1.firebasedatabase.app/users.json').then((resp)=>{
+    axios.get('https://chathttp-default-rtdb.sasia-southeast1.firebasedatabase.app/users.json').then((resp)=>{
       return resp.data;
     }).then((data)=>{
     let userData=[]
@@ -100,7 +100,7 @@ function App() {
   function onDeleteUser(user){
   let del=window.confirm("Are you sure you want to delete "+user.firstName+" "+user.lastName)
   if(del){
-    axios.delete('https://chathttp-default-rtdb.asia-southeast1.firebasedatabase.app/users/'+user.id+'.json').then((resp)=>{
+    axios.delete('https://chathttp-default-rtdb.sasia-southeast1.firebasedatabase.app/users/'+user.id+'.json').then((resp)=>{
       console.log(resp)
       feachUsers()
     }).catch((err)=>{
